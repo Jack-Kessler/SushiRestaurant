@@ -46,5 +46,10 @@ namespace SushiRestaurant
             menuItem.Categories = menuItemCategoryList; //Models -> Categories property
             return menuItem;
         }
+
+        public void DeleteMenuItemSQL(MenuItem item)
+        {
+            _conn.Execute("DELETE FROM menu_items WHERE MenuItemID = @id;", new { id = item });
+        }
     }
 }

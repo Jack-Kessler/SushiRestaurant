@@ -12,6 +12,6 @@ namespace SushiRestaurant
         public void InsertMenuItemSQL(MenuItem menuItemToInsert);
         public IEnumerable<MenuItemCategory> GetMenuItemCategoriesSQL();
         public MenuItem AssignMenuItemCategorySQL();
-
+        public void DeleteMenuItemSQL(MenuItem item);
     }
 }

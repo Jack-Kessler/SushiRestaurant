@@ -16,7 +16,18 @@
         <td>@Model.MenuItemCategory</td>
     </tr>
 </table>
+<br/>
 
 <div style="display: block">
     <a href="/MenuItem/UpdateMenuItem/@Model.MenuItemID">Update This Menu Item</a>
+</div>
+<br />
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteMenuItem", "MenuItem", "Post"))
+    {
+        <input type="hidden" asp-for="MenuItemID" value="@Model.MenuItemID" />
+        <input type="submit" onclick="return confirm('Please select 'yes' to confirm that you would like to delete the selected product.')" value="Delete this product" />
+    }
 </div>
