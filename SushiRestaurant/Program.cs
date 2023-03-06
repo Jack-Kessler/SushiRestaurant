@@ -1,9 +1,23 @@
 //Test
 
+using MySql.Data.MySqlClient;
+using SushiRestaurant;
+using System.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IDbConnection>((s) =>
+{
+    IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("sushirestaurant"));
+    conn.Open();
+    return conn;
+});
+
+builder.Services.AddTransient<IMenuItemRepository, MenuItemRepository>();
+
 
 var app = builder.Build();
 
