@@ -15,7 +15,7 @@ namespace SushiRestaurant
 
         public IEnumerable<MenuItem> GetAllMenuItems()
         {
-            return _conn.Query<MenuItem>("SELECT * FROM menu_items");
+            return _conn.Query<MenuItem>("SELECT * FROM MENU_ITEMS;");
         }
     }
 }
